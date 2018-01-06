@@ -1,11 +1,16 @@
 {
+  "name": "asq",
+  "displayName": "ASQ*",
+  "icon": {
+    "default": "assets/img/asq_nots.png"
+  },
   "expo": {
-  	"name": "ASQ*",
+    "name": "ASQ*",
     "slug": "asq-app",
-    "icon": "img/asq_logo.png",
+    "icon": "assets/img/asq_logo.png",
     "sdkVersion": "23.0.0",
     "notification": {
-      "icon" : "img/asq_nots.png"
+      "icon": "assets/img/asq_nots.png"
     }
   }
 }
