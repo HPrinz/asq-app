@@ -1,0 +1,11 @@
+{
+  "expo": {
+  	"name": "ASQ*",
+    "slug": "asq-app",
+    "icon": "img/asq_logo.png",
+    "sdkVersion": "23.0.0",
+    "notification": {
+      "icon" : "img/asq_nots.png"
+    }
+  }
+}
