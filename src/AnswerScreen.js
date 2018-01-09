@@ -12,6 +12,7 @@ export default class AnswerScreen extends Component {
     };
 
     render() {
+        console.log("JGAKFJ")
         return (
             <View style={{ flex: 1 }}>
                 <Header

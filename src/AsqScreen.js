@@ -35,7 +35,7 @@ export default class AsqScreen extends Component {
                 <ScrollView >
                     <View style={styles.asqcontainer} >
                         <TextInput
-                            style={{ fontSize: 30, flex: 1, height: 100 }}
+                            style={styles.qbox}
                             multiline={true}
                             numberOfLines={4}
                             onChangeText={(question) => this.setState({ question })}
@@ -47,6 +47,7 @@ export default class AsqScreen extends Component {
                             onPress={this._onAsqSelected}
                             title="ASQ"
                             color="#841584"
+
                         />
                     </View>
                     <View style={styles.asqcontainer} />
@@ -75,6 +76,16 @@ const styles = StyleSheet.create({
     note: {
         padding: 10,
         fontSize: 12
+    },
+
+    qbox: {
+        fontSize: 20,
+        flex: 1,
+        height: 100,
+        backgroundColor: "white",
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#CCCCCC'
     },
 
     asqButton: {

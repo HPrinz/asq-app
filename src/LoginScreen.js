@@ -21,6 +21,7 @@ export default ({ navigation }) => (
             <TextInput
                 style={{ height: 40, fontSize: 30 }}
                 placeholder="choose a username"
+                autoCapitalize="none"
             //onChangeText={(username) => this.setState({ username })}
             />
             <Button
