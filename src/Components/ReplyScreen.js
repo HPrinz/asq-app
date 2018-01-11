@@ -5,14 +5,13 @@ import { Font } from 'expo';
 
 import AsqHeader from './AsqHeader.js'
 
-export default class AnswerScreen extends Component {
+export default class ReplyScreen extends Component {
 
     static navigationOptions = {
         title: 'Answer',
     };
 
     render() {
-        console.log("JGAKFJ")
         return (
             <View style={{ flex: 1 }}>
                 <Header

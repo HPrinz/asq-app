@@ -3,12 +3,16 @@ import { StackNavigator, TabNavigator } from "react-navigation";
 import Welcome from "../Components/WelcomeScreen";
 import Logout from "../Components/LogoutScreen";
 import Login from "../Components/LoginScreen";
-import Feed from "../Components/Feed";
+import AsqScreen from "../Components/AsqScreen";
+import ReplyScreen from "../Components/ReplyScreen";
 import Notification from "../Components/Notification";
 
 const Tabs = TabNavigator({
-  feed: {
-    screen: Feed
+  asq: {
+    screen: AsqScreen
+  },
+  reply: {
+    screen: ReplyScreen
   },
   logout: {
     screen: Logout
