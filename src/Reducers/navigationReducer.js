@@ -8,7 +8,7 @@ const ActionForLoggedOut = AppNavigator.router.getActionForPathAndParams(
 );
 
 const ActionForLoggedIn = AppNavigator.router.getActionForPathAndParams(
-  "screen1"
+  "welcome"
 );
 
 const stateForLoggedOut = AppNavigator.router.getStateForAction(

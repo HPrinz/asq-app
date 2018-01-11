@@ -4,19 +4,14 @@ import { connect } from "react-redux";
 import { logout } from "../Actions/actionCreator";
 
 class LogoutScreen extends Component {
+
   static navigationOptions = {
-    title: "Screen2"
+    title: "Logout"
   };
+
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "powderblue",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
+      <View style={styles.viewStyle}>
         <Text>{this.props.navigation.state.params.name}</Text>
         <TouchableOpacity
           onPress={this.props.logout}
@@ -44,5 +39,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
     paddingVertical: 10,
     borderRadius: 5
+  },
+
+  viewStyle: {
+    flex: 1,
+    backgroundColor: "powderblue",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });

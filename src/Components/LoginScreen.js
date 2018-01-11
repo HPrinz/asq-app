@@ -5,6 +5,7 @@ import { Text, View, TouchableOpacity, StyleSheet, TextInput, Button } from "rea
 import { login } from "../Actions/actionCreator";
 import AsqHeader from './AsqHeader'
 
+
 class LoginScreen extends Component {
 
   static navigationOptions = {
@@ -33,6 +34,7 @@ class LoginScreen extends Component {
           <TouchableOpacity>
             <Button
               onPress={this.props.login}
+              //onPress={this.props.login}
               title="Login"
               color="#841584"
             />

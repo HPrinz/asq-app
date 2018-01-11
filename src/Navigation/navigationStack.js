@@ -1,7 +1,7 @@
 import { StackNavigator, TabNavigator } from "react-navigation";
 
-import Screen1 from "../Components/screen1";
-import Logout from "../Components/screen2";
+import Welcome from "../Components/WelcomeScreen";
+import Logout from "../Components/LogoutScreen";
 import Login from "../Components/LoginScreen";
 import Feed from "../Components/Feed";
 import Notification from "../Components/Notification";
@@ -19,10 +19,10 @@ const navigator = StackNavigator({
   login: {
     screen: Login
   },
-  screen1: {
-    screen: Screen1
+  welcome: {
+    screen: Welcome
   },
-  screen2: {
+  logout: {
     screen: Tabs
   }
 });
