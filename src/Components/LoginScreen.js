@@ -29,12 +29,11 @@ class LoginScreen extends Component {
             style={{ height: 40, fontSize: 30 }}
             placeholder="choose a username"
             autoCapitalize="none"
-          //onChangeText={(username) => this.setState({ username })}
+            onChangeText={(username) => this.setState({ username })}
           />
           <TouchableOpacity>
             <Button
-              onPress={this.props.login}
-              //onPress={this.props.login}
+              onPress={(event) => this.props.login({ username: this.state.username })}
               title="Login"
               color="#841584"
             />

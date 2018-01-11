@@ -4,9 +4,13 @@ const initialState = { isLoggedIn: false, username: "null" };
 
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    // TODO introduce name
+
     case Login:
-      return { ...state, isLoggedIn: true, username: "Spock" };
+      return {
+        ...state,
+        isLoggedIn: true,
+        username: action.data.username
+      };
 
     case Logout:
       return { ...state, isLoggedIn: false };

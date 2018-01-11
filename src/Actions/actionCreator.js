@@ -13,8 +13,9 @@ const decrementAction = () => ({
   type: decrementCounter
 });
 
-const login = () => ({
-  type: Login
+const login = (data) => ({
+  type: Login,
+  data
 });
 
 const logout = () => ({
