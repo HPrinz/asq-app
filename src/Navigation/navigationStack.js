@@ -26,7 +26,7 @@ const navigator = StackNavigator({
   welcome: {
     screen: Welcome
   },
-  logout: {
+  asq: {
     screen: Tabs
   }
 });

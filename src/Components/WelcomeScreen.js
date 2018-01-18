@@ -13,7 +13,7 @@ class WelcomeScreen extends Component {
 
   navigate = () => {
     const navigateToQuestion = NavigationActions.navigate({
-      routeName: "logout",
+      routeName: "asq",
       params: { name: "Shubhnik" }
     });
     this.props.navigation.dispatch(navigateToQuestion);

@@ -22,6 +22,23 @@ export default class AsqScreen extends Component {
     Alert.alert('Your question has been asked!')
   }
 
+  componentDidMount() {
+    return fetch('http://localhost:8080/api/questions')
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+        this.setState({
+          // Todo loading
+          questions: responseJson,
+        }, function () {
+          // do something with new state
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   render() {
 
     return (
@@ -33,6 +50,8 @@ export default class AsqScreen extends Component {
         />
 
         <ScrollView >
+          <Text>{JSON.stringify(this.state.questions, null, 2)}</Text>
+
           <View style={styles.asqcontainer} >
             <TextInput
               style={styles.qbox}
