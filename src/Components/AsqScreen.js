@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Header } from 'react-native-elements';
-import { Text, TextInput, View, StyleSheet, Button, Alert, Container, ScrollView } from 'react-native';
+import { Text, TextInput, View, StyleSheet, Button, Alert, Container, ScrollView, TouchableOpacity } from 'react-native';
 import { connect } from "react-redux";
 import { Font } from 'expo';
 import { loadQuestions } from "../Actions/actionCreator";
@@ -19,6 +19,8 @@ class AsqScreen extends Component {
 
   static navigationOptions = {
     title: 'ASQ*',
+    // TODO
+    header: null
   };
 
   fetchQuestions = () => {
@@ -62,31 +64,32 @@ class AsqScreen extends Component {
       <View style={styles.parent}>
 
         <Header
-          outerContainerStyles={{ height: 100, backgroundColor: "white" }}
+          outerContainerStyles={{ height: 100, backgroundColor: "white", borderWidth: 0 }}
           centerComponent={<AsqHeader />}
         />
 
-        <ScrollView >
-          <QuestionView></QuestionView>
-          <Text>{JSON.stringify(this.props.questions, null, 2)}</Text>
+        <View style={styles.asqcontainer} >
+          <TextInput
+            style={styles.qbox}
+            multiline={true}
+            numberOfLines={4}
+            fontSize={20}
+            onChangeText={(question) => this.setState({ question })}
+            value={this.state.question}
+            placeholder="<your question here/>"
+          />
 
-          <View style={styles.asqcontainer} >
-            <TextInput
-              style={styles.qbox}
-              multiline={true}
-              numberOfLines={4}
-              onChangeText={(question) => this.setState({ question })}
-              value={this.state.question}
-              placeholder="Asq your question here"
-            />
-            <Button
-              style={styles.asqButton}
-              onPress={this.onAsqSelected}
-              title="ASQ"
-              color="#841584"
-              fontSize="45pt"
-            />
-          </View>
+          <TouchableOpacity
+            onPress={this.onAsqSelected}
+            style={styles.touchableStyles}
+          >
+            <Text style={{ color: "#841584", fontSize: 22, textAlign: "center", fontWeight: "600" }}>ASQ your question</Text>
+          </TouchableOpacity>
+        </View>
+
+        <ScrollView >
+
+          <QuestionView></QuestionView>
         </ScrollView >
 
       </View>
@@ -101,9 +104,9 @@ const styles = StyleSheet.create({
   },
 
   asqcontainer: {
+    padding: 10,
     flex: 1,
-    flexGrow: 1,
-    alignItems: 'center'
+    backgroundColor: '#ffffff'
   },
 
   headercontainer: {
@@ -124,15 +127,18 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     height: 100,
     backgroundColor: "white",
-    padding: 5,
+    padding: 10,
     borderWidth: 1,
     borderColor: '#CCCCCC'
   },
 
-  asqButton: {
-    fontWeight: "900",
-    fontSize: 45
-  }
+  touchableStyles: {
+    marginTop: 0,
+    backgroundColor: "white",
+    paddingHorizontal: 50,
+    paddingVertical: 10,
+    borderRadius: 5
+  },
 
 });
 

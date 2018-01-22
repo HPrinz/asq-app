@@ -7,10 +7,10 @@ class QuestionView extends Component {
     renderQuestions = () => {
         return this.props.questions.map(function (q, i) {
             return (
-                <View key={i}>
-                    <Text>{q.username}:</Text>
+                <View key={i} style={styles.container}>
+                    <Text style={styles.username}>{q.username}:</Text>
                     <View>
-                        <Text>{q.question}</Text>
+                        <Text style={styles.question}>{q.question}</Text>
                     </View>
                 </View>
             );
@@ -27,7 +27,18 @@ class QuestionView extends Component {
 }
 
 const styles = StyleSheet.create({
-    // TODO
+
+    username: {
+        fontSize: 10,
+        color: "#7f7f7f"
+    },
+    container: {
+        padding: 10
+    },
+    question: {
+        fontSize: 20,
+        fontWeight: "500"
+    }
 })
 
 const mapStateToProps = state => ({

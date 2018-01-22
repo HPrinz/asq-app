@@ -34,18 +34,19 @@ class AsqHeader extends Component {
 
 const styles = StyleSheet.create({
     asqlato: {
-        fontSize: 45,
+        fontSize: 35,
         fontFamily: 'Lato-black'
     },
     asq: {
-        fontSize: 45,
+        fontSize: 35,
         fontWeight: "900"
     },
     viewStyle: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'flex-end',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        borderWidth: 0
     }
 
 })

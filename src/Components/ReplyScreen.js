@@ -9,6 +9,8 @@ export default class ReplyScreen extends Component {
 
     static navigationOptions = {
         title: 'Answer',
+        // TODO
+        header: null
     };
 
     render() {

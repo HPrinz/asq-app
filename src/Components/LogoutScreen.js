@@ -6,7 +6,9 @@ import { logout } from "../Actions/actionCreator";
 class LogoutScreen extends Component {
 
   static navigationOptions = {
-    title: "Logout"
+    title: "Logout",
+    // TODO
+    header: null
   };
 
   render() {
@@ -16,7 +18,7 @@ class LogoutScreen extends Component {
           onPress={this.props.logout}
           style={styles.touchableStyles}
         >
-          <Text style={{ color: "white", fontSize: 22 }}>Logout</Text>
+          <Text style={{ color: "black", fontSize: 22 }}>Logout</Text>
         </TouchableOpacity>
       </View>
     );
@@ -34,7 +36,7 @@ export default Logout;
 const styles = StyleSheet.create({
   touchableStyles: {
     marginTop: 15,
-    backgroundColor: "black",
+    backgroundColor: "white",
     paddingHorizontal: 50,
     paddingVertical: 10,
     borderRadius: 5
@@ -42,7 +44,6 @@ const styles = StyleSheet.create({
 
   viewStyle: {
     flex: 1,
-    backgroundColor: "powderblue",
     justifyContent: "center",
     alignItems: "center"
   }
