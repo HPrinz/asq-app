@@ -1,6 +1,6 @@
 # ASQ\* App
 
-**ASQ\*** for recommendation for like events, restaurants, shops, services etc. and get immediate answers from people around you who share your taste.
+**ASQ\*** any question and get immediate answers from people around you who match you and your question best.
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
