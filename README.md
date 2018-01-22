@@ -7,22 +7,22 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 ## TODOs
 
 - [x] integrate Redux for state
-- [ ] connect to server
-- [ ] save questions in db
-- [ ] send notifications on new questions
-- [ ] write responses
-- [ ] list own questions
-- [ ] list questions to aswer
+- [x] login
+- [x] connect to server
+- [x] ask questions
+- [ ] send *notifications* on new questions
+- [x] list *all* questions in ASQ View
+- [ ] list *only own* questions in ASQ View
+- [ ] list questions to aswer in ANSWER View
+- [ ] let user *answer* questions
+- [ ] [DEV] extract server URL to env vars
 - [ ] styling
-- [ ] ask for user interests
+- [ ] ask for user interests on first login
 - [ ] align notifications to user interests
 
 Maybe
 - [ ] test with jest
-- [ ] flow?
-- [ ] typescript
-- [ ] learn how to deploy
-- [ ] firebase
+- [ ] use typescript?
 
 ## Installation
 
