@@ -1,4 +1,4 @@
-#ASQ\*
+# ASQ\*
 
 **ASQ\*** is an app that enables people to asq questions about location-related recommendations like events, restaurants, clubs, shops, services etc. and receive immediate answers from people who share your interests and taste.
 
@@ -32,7 +32,7 @@ Maybe
 
 ## Start the app
 
-### `npm install`
+### `npm start`
 
 Runs your app in development mode.
 
