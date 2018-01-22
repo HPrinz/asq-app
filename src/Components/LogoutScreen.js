@@ -12,7 +12,6 @@ class LogoutScreen extends Component {
   render() {
     return (
       <View style={styles.viewStyle}>
-        <Text>{this.props.navigation.state.params.name}</Text>
         <TouchableOpacity
           onPress={this.props.logout}
           style={styles.touchableStyles}

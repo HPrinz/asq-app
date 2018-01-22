@@ -1,9 +1,10 @@
-import { incrementCounter, decrementCounter } from "../Actions/actionTypes";
+import { LOAD_QUESTIONS } from "../Actions/actionTypes";
 
-const initialState = { counter: 0 };
+const initialState = { questions: [] };
 
 const QuestionsReducer = (state = initialState, action) => {
   switch (action.type) {
+    /**
     case incrementCounter:
       return {
         ...state,
@@ -11,10 +12,17 @@ const QuestionsReducer = (state = initialState, action) => {
       };
 
     case decrementCounter:
-      return { ...state, counter: state.counter - 1 };
+      return {
+        ...state,
+        counter: state.counter - 1
+      };
+    */
 
-    case "LOGOUT":
-      return { ...initialState };
+    case LOAD_QUESTIONS:
+      return {
+        ...state,
+        questions: action.data.questions
+      };
 
     default:
       return state;

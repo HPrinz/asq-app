@@ -1,18 +1,18 @@
-import { Login, Logout } from "../Actions/actionTypes";
+import { LOGIN, LOGOUT } from "../Actions/actionTypes";
 
 const initialState = { isLoggedIn: false, username: "null" };
 
-const loginReducer = (state = initialState, action) => {
+const LoginReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case Login:
+    case LOGIN:
       return {
         ...state,
         isLoggedIn: true,
         username: action.data.username
       };
 
-    case Logout:
+    case LOGOUT:
       return {
         ...state,
         isLoggedIn: false
@@ -23,4 +23,4 @@ const loginReducer = (state = initialState, action) => {
   }
 };
 
-export default loginReducer;
+export default LoginReducer;

@@ -1,7 +1,7 @@
 import { NavigationActions } from "react-navigation";
-
 import AppNavigator from "../Navigation/navigationStack";
-import { Login, Logout } from "../Actions/actionTypes";
+
+import { LOGIN, LOGOUT } from "../Actions/actionTypes";
 
 const ActionForLoggedOut = AppNavigator.router.getActionForPathAndParams(
   "login"
@@ -21,7 +21,7 @@ const stateForLoggedIn = AppNavigator.router.getStateForAction(
 
 const initialState = { stateForLoggedOut, stateForLoggedIn };
 
-const navigationReducer = (state = initialState, action) => {
+const NavigationReducer = (state = initialState, action) => {
   switch (action.type) {
     case "@@redux/INIT":
       return {
@@ -32,7 +32,7 @@ const navigationReducer = (state = initialState, action) => {
         )
       };
 
-    case Login:
+    case LOGIN:
       return {
         ...state,
         stateForLoggedIn: AppNavigator.router.getStateForAction(
@@ -41,7 +41,7 @@ const navigationReducer = (state = initialState, action) => {
         )
       };
 
-    case Logout:
+    case LOGOUT:
       return {
         ...state,
         stateForLoggedOut: AppNavigator.router.getStateForAction(
@@ -73,4 +73,4 @@ const navigationReducer = (state = initialState, action) => {
   }
 };
 
-export default navigationReducer;
+export default NavigationReducer;

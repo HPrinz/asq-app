@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, Button } from "react-native";
+import { Text, View, TouchableOpacity, Button, StyleSheet } from "react-native";
 import { NavigationActions } from "react-navigation";
 import { connect } from "react-redux";
 import { incrementAction, decrementAction } from "../Actions/actionCreator";
 
 class WelcomeScreen extends Component {
+
   static navigationOptions = {
     title: "Welcome!",
     gesturesEnabled: false,
@@ -13,8 +14,7 @@ class WelcomeScreen extends Component {
 
   navigate = () => {
     const navigateToQuestion = NavigationActions.navigate({
-      routeName: "asq",
-      params: { name: "Shubhnik" }
+      routeName: "asq"
     });
     this.props.navigation.dispatch(navigateToQuestion);
   };
@@ -23,13 +23,13 @@ class WelcomeScreen extends Component {
     const {
       username
     } = this.props;
-    // onPress={() => decrementAction()}
+
     return (
       <View>
-        <Text>Welcome {username} to ASQ*</Text>
+        <Text style={styles.welcomeText}>Welcome {username}!</Text>
         <Button
           onPress={this.navigate}
-          title="Continue"
+          title="Start ASQ*ing now"
         />
       </View>
     );
@@ -45,11 +45,16 @@ const mapStateToProps = state => ({
   username: state.LoginReducer.username
 });
 
-//const mapDispatchToProps = {
-//  incrementAction,
-//  decrementAction
-//};
-
 const Welcome = connect(mapStateToProps)(WelcomeScreen);
 
 export default Welcome;
+
+const styles = StyleSheet.create({
+  welcomeText: {
+    fontSize: 25,
+    padding: 20,
+    textAlign: 'center'
+  },
+
+
+});

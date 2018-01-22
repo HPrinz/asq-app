@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import QuestionsReducer from "./questionsReducer";
-import NavigationReducer from "./navigationReducer";
-import LoginReducer from "./loginReducer";
+import QuestionsReducer from "./QuestionsReducer";
+import NavigationReducer from "./NavigationReducer";
+import LoginReducer from "./LoginReducer";
 
 const AppReducer = combineReducers({
   QuestionsReducer,

@@ -1,8 +1,9 @@
 import {
   incrementCounter,
   decrementCounter,
-  Login,
-  Logout
+  LOGIN,
+  LOGOUT,
+  LOAD_QUESTIONS
 } from "./actionTypes";
 
 const incrementAction = () => ({
@@ -13,13 +14,18 @@ const decrementAction = () => ({
   type: decrementCounter
 });
 
+const loadQuestions = (data) => ({
+  type: LOAD_QUESTIONS,
+  data
+});
+
 const login = (data) => ({
-  type: Login,
+  type: LOGIN,
   data
 });
 
 const logout = () => ({
-  type: Logout
+  type: LOGOUT
 });
 
-export { incrementAction, decrementAction, login, logout };
+export { incrementAction, decrementAction, login, logout, loadQuestions };

@@ -5,7 +5,6 @@ import { Text, View, TouchableOpacity, StyleSheet, TextInput, Button } from "rea
 import { login } from "../Actions/actionCreator";
 import AsqHeader from './AsqHeader'
 
-
 class LoginScreen extends Component {
 
   static navigationOptions = {

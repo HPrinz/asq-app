@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Header } from 'react-native-elements';
 import { Text, TextInput, View, StyleSheet, Button, Alert, Container, ScrollView } from 'react-native';
+import { connect } from "react-redux";
 import { Font } from 'expo';
+import { loadQuestions } from "../Actions/actionCreator";
 
 import AsqHeader from './AsqHeader.js'
+import QuestionView from './QuestionView';
 
-export default class AsqScreen extends Component {
+class AsqScreen extends Component {
 
   constructor(props) {
     super(props);
@@ -18,31 +21,45 @@ export default class AsqScreen extends Component {
     title: 'ASQ*',
   };
 
-  _onAsqSelected() {
-    Alert.alert('Your question has been asked!')
-  }
-
-  componentDidMount() {
-    return fetch('http://localhost:8080/api/questions')
+  fetchQuestions = () => {
+    return fetch('https://intense-ridge-99027.herokuapp.com/api/questions')
       .then((response) => response.json())
       .then((responseJson) => {
-
-        this.setState({
-          // Todo loading
-          questions: responseJson,
-        }, function () {
-          // do something with new state
-        });
+        // TODO loading
+        this.props.loadQuestions({ questions: responseJson });
       })
       .catch((error) => {
         console.error(error);
       });
   }
 
+  onAsqSelected = () => {
+
+    fetch('https://intense-ridge-99027.herokuapp.com/api/questions', {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        question: this.state.question,
+        username: this.props.username,
+      }),
+    }).then(() => {
+      this.fetchQuestions();
+    }).catch((error) => {
+      console.error(error);
+    });;
+  }
+
+  componentDidMount() {
+    return this.fetchQuestions();
+  }
+
   render() {
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.parent}>
 
         <Header
           outerContainerStyles={{ height: 100, backgroundColor: "white" }}
@@ -50,7 +67,8 @@ export default class AsqScreen extends Component {
         />
 
         <ScrollView >
-          <Text>{JSON.stringify(this.state.questions, null, 2)}</Text>
+          <QuestionView></QuestionView>
+          <Text>{JSON.stringify(this.props.questions, null, 2)}</Text>
 
           <View style={styles.asqcontainer} >
             <TextInput
@@ -63,13 +81,12 @@ export default class AsqScreen extends Component {
             />
             <Button
               style={styles.asqButton}
-              onPress={this._onAsqSelected}
+              onPress={this.onAsqSelected}
               title="ASQ"
               color="#841584"
-
+              fontSize="45pt"
             />
           </View>
-          <View style={styles.asqcontainer} />
         </ScrollView >
 
       </View>
@@ -78,11 +95,15 @@ export default class AsqScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+
+  parent: {
+    flex: 1
+  },
+
   asqcontainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    padding: 20
+    flexGrow: 1,
+    alignItems: 'center'
   },
 
   headercontainer: {
@@ -98,17 +119,30 @@ const styles = StyleSheet.create({
   },
 
   qbox: {
-    fontSize: 20,
+    fontSize: 15,
     flex: 1,
+    flexGrow: 1,
     height: 100,
     backgroundColor: "white",
-    padding: 10,
+    padding: 5,
     borderWidth: 1,
     borderColor: '#CCCCCC'
   },
 
   asqButton: {
-    fontWeight: "900"
+    fontWeight: "900",
+    fontSize: 45
   }
 
 });
+
+const mapStateToProps = state => ({
+  username: state.LoginReducer.username
+});
+
+const mapDispatchToProps = {
+  loadQuestions
+};
+
+const Asq = connect(mapStateToProps, mapDispatchToProps)(AsqScreen);
+export default Asq;

@@ -19,12 +19,7 @@ class AsqHeader extends Component {
     render() {
         return (
 
-            <View style={{
-                flex: 1,
-                flexDirection: 'row',
-                alignItems: 'flex-end',
-                justifyContent: 'center'
-            }}>
+            <View style={styles.viewStyle}>
                 {
                     // this.state.fontLoaded ? (
                     //    <Text style={styles.asqlato}>ASQ*</Text>
@@ -45,6 +40,12 @@ const styles = StyleSheet.create({
     asq: {
         fontSize: 45,
         fontWeight: "900"
+    },
+    viewStyle: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        justifyContent: 'center'
     }
 
 })
