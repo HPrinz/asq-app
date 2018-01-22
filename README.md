@@ -1,6 +1,6 @@
 # ASQ\*
 
-**ASQ\*** is an app that enables people to asq questions about location-related recommendations like events, restaurants, clubs, shops, services etc. and receive immediate answers from people who share your interests and taste.
+**ASQ\*** for recommendation for like events, restaurants, shops, services etc. and get immediate answers from people around you who share your taste.
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
