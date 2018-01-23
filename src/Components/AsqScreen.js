@@ -71,7 +71,7 @@ class AsqScreen extends Component {
       <View style={styles.parent}>
 
         <Header
-          outerContainerStyles={{ height: 100, backgroundColor: "white", borderWidth: 0 }}
+          outerContainerStyles={{ height: 100, backgroundColor: "white", borderBottomWidth: 0 }}
           centerComponent={<AsqHeader />}
         />
 
@@ -79,7 +79,7 @@ class AsqScreen extends Component {
           <TextInput
             style={styles.qbox}
             multiline={true}
-            numberOfLines={4}
+            numberOfLines={3}
             fontSize={20}
             onChangeText={(question) => this.setState({ question })}
             value={this.state.question}
@@ -94,8 +94,7 @@ class AsqScreen extends Component {
           </TouchableOpacity>
         </View>
 
-        <ScrollView >
-
+        <ScrollView style={{ flex: 2, flexGrow: 2 }}>
           <QuestionView></QuestionView>
         </ScrollView >
 
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
   asqcontainer: {
     padding: 10,
     flex: 1,
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
   },
 
   headercontainer: {
@@ -129,14 +128,10 @@ const styles = StyleSheet.create({
   },
 
   qbox: {
-    fontSize: 15,
     flex: 1,
-    flexGrow: 1,
-    height: 100,
     backgroundColor: "white",
     padding: 10,
-    borderWidth: 1,
-    borderColor: '#CCCCCC'
+    borderWidth: 1, borderRadius: 5, borderColor: '#CCCCCC'
   },
 
   touchableStyles: {
