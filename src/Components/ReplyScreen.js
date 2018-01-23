@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Header } from 'react-native-elements';
-import { Text, TextInput, View, StyleSheet, Button, Alert, Container } from 'react-native';
-import { Font } from 'expo';
+import { Text, TextInput, View, StyleSheet, Button, Alert, Container, Image } from 'react-native';
 
 import AsqHeader from './AsqHeader.js'
 
@@ -9,6 +8,12 @@ export default class ReplyScreen extends Component {
 
     static navigationOptions = {
         title: 'Answer',
+        tabBarIcon: ({ tintColor }) => (
+            <Image
+                source={require('../../assets/img/asterisk.png')}
+                style={[styles.icon, { tintColor: tintColor }]}
+            />
+        ),
         // TODO
         header: null
     };
@@ -46,6 +51,10 @@ const styles = StyleSheet.create({
     note: {
         padding: 10,
         fontSize: 12
+    },
+    icon: {
+        width: 26,
+        height: 26,
     },
 
 });

@@ -10,12 +10,12 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 - [x] login
 - [x] connect to server
 - [x] ask questions
-- [ ] send *notifications* on new questions
+- [-] send *notifications* on new questions
 - [x] list *all* questions in ASQ View
 - [ ] list *only own* questions in ASQ View
 - [ ] list questions to aswer in ANSWER View
 - [ ] let user *answer* questions
-- [ ] [DEV] extract server URL to env vars
+- [x] [DEV] extract server URL etc. to config file
 - [ ] styling
 - [ ] ask for user interests on first login
 - [ ] align notifications to user interests

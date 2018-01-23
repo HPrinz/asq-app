@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Header } from 'react-native-elements';
-import { Text, TextInput, View, StyleSheet, Button, Alert, Container, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, TextInput, View, StyleSheet, Button, Alert, Container, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { connect } from "react-redux";
 import { Font } from 'expo';
 import { loadQuestions } from "../Actions/actionCreator";
 
 import AsqHeader from './AsqHeader.js'
 import QuestionView from './QuestionView';
+import { API_URL } from '../Config';
 
 class AsqScreen extends Component {
 
@@ -19,12 +20,18 @@ class AsqScreen extends Component {
 
   static navigationOptions = {
     title: 'ASQ*',
+    tabBarIcon: ({ tintColor }) => (
+      <Image
+        source={require('../../assets/img/questionmark.png')}
+        style={[styles.icon, { tintColor: tintColor }]}
+      />
+    ),
     // TODO
-    header: null
+    header: null,
   };
 
   fetchQuestions = () => {
-    return fetch('https://intense-ridge-99027.herokuapp.com/api/questions')
+    return fetch(API_URL + '/questions')
       .then((response) => response.json())
       .then((responseJson) => {
         // TODO loading
@@ -37,7 +44,7 @@ class AsqScreen extends Component {
 
   onAsqSelected = () => {
 
-    fetch('https://intense-ridge-99027.herokuapp.com/api/questions', {
+    fetch(API_URL + 'questions', {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
@@ -138,6 +145,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
     paddingVertical: 10,
     borderRadius: 5
+  },
+  icon: {
+    width: 26,
+    height: 26,
   },
 
 });
