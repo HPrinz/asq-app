@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Header } from 'react-native-elements';
-import { Text, View, TouchableOpacity, StyleSheet, TextInput, Button } from "react-native";
+import { Text, View, TouchableOpacity, StyleSheet, TextInput, Button, ScrollView } from "react-native";
 import { login } from "../Actions/actionCreator";
 import AsqHeader from './AsqHeader'
 
@@ -18,32 +18,36 @@ class LoginScreen extends Component {
           centerComponent={<AsqHeader />}
         />
 
-        < View style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: 20
-        }} >
-          <TextInput
-            style={{ height: 40, fontSize: 30 }}
-            placeholder="choose a username"
-            autoCapitalize="none"
-            onChangeText={(username) => this.setState({ username })}
-          />
-          <TouchableOpacity>
-            <Button
-              onPress={(event) => this.props.login({ username: this.state.username })}
-              title="Login"
-              color="#841584"
-            />
-          </TouchableOpacity>
+        <ScrollView style={{ flex: 1 }}>
 
-          <Text style={{
-            padding: 10,
-            fontSize: 12
-          }}>This is a prototype with username-login only. Therefor please dont leave personal information in your account.</Text>
-        </View >
+          < View style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 20
+          }} >
+            <TextInput
+              style={{ height: 40, fontSize: 30 }}
+              placeholder="choose a username"
+              autoCapitalize="none"
+              onChangeText={(username) => this.setState({ username })}
+            />
+            <TouchableOpacity>
+              <Button
+                onPress={(event) => this.props.login({ username: this.state.username })}
+                title="Login"
+                color="#841584"
+              />
+            </TouchableOpacity>
+
+            <Text style={{
+              padding: 10,
+              fontSize: 12
+            }}>This is a prototype with username-login only. Therefor please dont leave personal information in your account.</Text>
+          </View >
+        </ScrollView>
       </View >
+
     );
   }
 }
